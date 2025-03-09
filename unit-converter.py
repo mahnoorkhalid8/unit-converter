@@ -3,25 +3,25 @@ import streamlit as st
 st.set_page_config(page_title="Unit Converter", page_icon="📏", layout="centered")
 
 length_units = {
-    "meters": 1,
-    "kilometers": 1000,
-    "centimeters": 0.01,
-    "millimeters": 0.001,
-    "micrometers": 1e-6,
-    "nanometers": 1e-9,
-    "inches": 0.0254,
-    "foot": 0.3048,
-    "yards": 0.9144,
-    "miles": 1609.34,
-    "nautical_miles": 1852,
+    "meters": 1000,
+    "kilometers": 1,
+    "centimeters": 100000,
+    "millimeters": 1e+6,
+    "micrometers": 1e+9,
+    "nanometers": 1e+12,
+    "inches": 39370.1,
+    "foot": 3280.84,
+    "yards": 1093.61,
+    "miles": 0.621371,
+    "nautical_miles": 0.539957,
 }
 
 weight_units = {
     "kilograms": 1,
-    "grams": 0.001,
-    "milligrams": 1e-6,
-    "pounds": 0.453592,
-    "ounces": 0.0283495,
+    "grams": 1000,
+    "milligrams": 1e+6,
+    "pounds": 2.20462,
+    "ounces": 35.274,
 }
 
 st.title("Unit Converter")
@@ -44,7 +44,7 @@ with col1:
 with col2:
     to_unit = st.selectbox("To unit", units.keys())
     result = convert(length, from_unit, to_unit)
-    st.metric(label= "Converted Value", value=f"{result:.6f}")
+    st.metric(label= "Converted Value", value=f"{result:.2f}")
 
-# st.info(f"Formula: Multiply by {length_units[to_unit] / length_units[from_unit]:.6f}")
+st.info(f"Formula: Multiply by {length_units[to_unit] / length_units[from_unit]:.6f}")
 
