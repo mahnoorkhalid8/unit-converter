@@ -46,5 +46,5 @@ with col2:
     result = convert(length, from_unit, to_unit)
     st.metric(label= "Converted Value", value=f"{result:.2f}")
 
-st.info(f"Formula: Multiply by {length_units[to_unit] / length_units[from_unit]:.6f}")
+st.info(f"Formula: Multiply by {length_units[to_unit] / length_units[from_unit]:.2f}")
 
